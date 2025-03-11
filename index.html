@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Soul LLC - Human-Centered Technology Consulting</title>
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #4a2aeb;
+            --accent: #7245ff;
+            --text: #f5f5f7;
+            --text-secondary: #b3b3b3;
+            --background: #121212;
+            --card-bg: #1e1e1e;
+            --border: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .hero {
+            height: 92vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(120deg, var(--primary), var(--background));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 30%, var(--background) 70%);
+            opacity: 0.7;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--text);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--accent);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .service-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .approach {
+            background-color: var(--primary);
+            border-radius: 20px;
+            padding: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .approach-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .approach-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .approach-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .approach-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        
+        .approach-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .approach-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        .tech-wave {
+            background: linear-gradient(135deg, var(--background), var(--primary));
+            border-radius: 20px;
+            padding: 4rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        
+        .tech-wave h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-wave p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: var(--text-secondary);
+        }
+        
+        .testimonials {
+            padding: 4rem 0;
+        }
+        
+        .testimonial-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        .testimonial-org {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .cta {
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            text-align: center;
+            padding: 5rem 0;
+            border-radius: 20px;
+            margin-top: 4rem;
+        }
+        
+        .cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        footer {
+            background-color: var(--primary);
+            padding: 3rem 0;
+            margin-top: 5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .approach-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .approach, .tech-wave {
+                padding: 2rem;
+            }
+            
+            .menu-btn {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">NOVA<span>SOUL</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#approach">Our Approach</a></li>
+                        <li><a href="#tech3">Tech 3.0</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Human-Centered Technology Solutions for a Digital World</h1>
+                <p>Nova Soul brings a soulful approach to technology consulting, matching tools to values and keeping humanity at the center of Tech 3.0.</p>
+                <a href="#services" class="btn">Explore Services</a>
+                <a href="#contact" class="btn btn-outline">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Technology solutions with soul and purpose</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Staff Technology Support</h3>
+                    <p>Personalized computer setup, performance optimization, and software configuration tailored to your team's specific needs and workflows.</p>
+                    <ul>
+                        <li>Computer purchasing and setup</li>
+                        <li>Performance troubleshooting</li>
+                        <li>Software configuration</li>
+                        <li>Standardized computer imaging</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>File Management Systems</h3>
+                    <p>Organized digital file structures that make sense for your organization, with protocols designed for your specific workflows and needs.</p>
+                    <ul>
+                        <li>Digital file organization</li>
+                        <li>Secure cloud storage</li>
+                        <li>Media file management</li>
+                        <li>Staff training</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>In-House Secure Server</h3>
+                    <p>Air-gapped, private server solutions physically located on your premises for maximum security and control of sensitive data.</p>
+                    <ul>
+                        <li>Air-gapped server setup</li>
+                        <li>Hardware procurement</li>
+                        <li>Restricted access protocols</li>
+                        <li>Local network configuration</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Program Participant Database</h3>
+                    <p>Custom database solutions for tracking program participants, outcomes, and satisfaction, designed in partnership with your program managers.</p>
+                    <ul>
+                        <li>Database implementation</li>
+                        <li>Custom tracking fields</li>
+                        <li>Program reporting</li>
+                        <li>Satisfaction tracking</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Financial Data Visualization</h3>
+                    <p>Visual reports and dashboards that bring your financial data to life, helping you understand trends and make better decisions.</p>
+                    <ul>
+                        <li>Budget analysis</li>
+                        <li>Financial tracking</li>
+                        <li>Management dashboards</li>
+                        <li>Grant visualization</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Public Dataset Analysis</h3>
+                    <p>Connection to public data sources with custom reports and dashboards that help you understand your community better.</p>
+                    <ul>
+                        <li>Public data connection</li>
+                        <li>Community metrics</li>
+                        <li>Custom dashboards</li>
+                        <li>Data interpretation</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Dark Web Security Assessment</h3>
+                    <p>Comprehensive scanning for organizational vulnerabilities on the dark web, with practical recommendations for improving security.</p>
+                    <ul>
+                        <li>Dark web email scanning</li>
+                        <li>Organization name monitoring</li>
+                        <li>Staff information scanning</li>
+                        <li>Security recommendations</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Systems & Process Optimization</h3>
+                    <p>Review and enhancement of your existing systems with targeted recommendations for improvements in efficiency and effectiveness.</p>
+                    <ul>
+                        <li>System assessment</li>
+                        <li>Financial tracking optimization</li>
+                        <li>Process mapping</li>
+                        <li>Workflow documentation</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Training Materials Enhancement</h3>
+                    <p>Modernization of your training materials with professionally designed presentations and engaging visual content.</p>
+                    <ul>
+                        <li>PowerPoint redesign</li>
+                        <li>Visual content creation</li>
+                        <li>Training effectiveness</li>
+                        <li>Modern presentation design</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="approach" class="container">
+        <div class="approach">
+            <div class="approach-content">
+                <div class="approach-text">
+                    <h2>The Nova Soul Approach</h2>
+                    <p>At Nova Soul, we believe technology should serve human values, not the other way around. Our approach is built on understanding your unique needs and values first, then finding the right technological solutions.</p>
+                    <p>We've evolved from IOSoul to Nova Soul, reflecting our commitment to bringing fresh, innovative approaches to technology consulting while keeping the human element at the center.</p>
+                    
+                    <ul class="approach-list">
+                        <li>Custom components that match your values and preferences</li>
+                        <li>Human-centered design that prioritizes real people's needs</li>
+                        <li>Ethical technology choices that align with your mission</li>
+                        <li>Value-sensitive implementation that respects your organization's culture</li>
+                        <li>Solutions targeted to your specific requirements, not generic packages</li>
+                    </ul>
+                </div>
+                <div class="approach-image">
+                    <!-- This would be an image in a real site -->
+                    <div style="height: 400px; background: linear-gradient(45deg, #4a2aeb, #7245ff); border-radius: 15px; display: flex; justify-content: center; align-items: center; color: white; font-size: 2rem; font-weight: bold;">Human-Centered Technology</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="tech3" class="tech-wave">
+            <h2>Navigating Technology 3.0</h2>
+            <p>We're entering the third wave of technology evolution - one where AI, automation, and advanced systems are becoming increasingly integrated into our lives. At Nova Soul, we believe in keeping humans at the center of this transformation.</p>
+            <p>Our mission is to help you harness the power of Tech 3.0 while ensuring it serves your human-centered goals and values. We don't just implement technology; we help you navigate this new landscape with intention and purpose.</p>
+            <a href="#contact" class="btn">Partner With Us</a>
+        </div>
+    </section>
+
+    <section class="testimonials container">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <p class="section-subtitle">Real results from real organizations</p>
+        
+        <div class="testimonial-card">
+            <p class="testimonial-text">"Nova Soul didn't just fix our technology problems - they understood our mission and values first, then developed solutions that actually matched our needs. Their approach was refreshingly human-centered."</p>
+            <p class="testimonial-author">Executive Director</p>
+            <p class="testimonial-org">Bay Area Nonprofit</p>
+        </div>
+        
+        <div class="testimonial-card">
+            <p class="testimonial-text">"The financial visualization dashboard Nova Soul created has completely transformed how we understand our organization's finances. We can now make decisions based on clear data rather than guesswork."</p>
+            <p class="testimonial-author">Finance Director</p>
+            <p class="testimonial-org">Community Services Organization</p>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <div class="cta">
+            <h2>Ready for Technology with Soul?</h2>
+            <p>Let's discuss how Nova Soul can help your organization with human-centered technology solutions tailored to your unique needs and values.</p>
+            <a href="mailto:info@novasoul.net" class="btn">Contact Us Today</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Nova Soul LLC</h3>
+                    <p>Human-centered technology consulting for a digital world.</p>
+                    <p>info@novasoul.net</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Staff Technology Support</a></li>
+                        <li><a href="#services">In-House Secure Server</a></li>
+                        <li><a href="#services">Data Visualization</a></li>
+                        <li><a href="#services">Process Optimization</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#approach">Our Approach</a></li>
+                        <li><a href="#tech3">Tech 3.0</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Nova Soul LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
