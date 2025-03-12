@@ -3,599 +3,751 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Soul LLC - Human-Centered Technology Consulting</title>
+    <title>Nova Soul | Human-Centered Technology</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a1a1a;
-            --secondary: #4a2aeb;
-            --accent: #7245ff;
-            --text: #f5f5f7;
-            --text-secondary: #b3b3b3;
-            --background: #121212;
-            --card-bg: #1e1e1e;
-            --border: #333333;
+            /* Premium, sleek color palette */
+            --primary: #0f172a;      /* Deep navy */
+            --secondary: #1e293b;    /* Rich slate */
+            --highlight: #6366f1;    /* Elegant indigo */
+            --accent: #ec4899;       /* Vibrant pink */
+            --subtle: #94a3b8;       /* Sophisticated slate */
+            --light: #f8fafc;        /* Off-white */
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+            --border: #e2e8f0;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
         
         body {
-            background-color: var(--background);
-            color: var(--text);
-            line-height: 1.6;
+            background-color: var(--light);
+            color: var(--text-dark);
+            line-height: 1.5;
+            font-family: 'Inter', sans-serif;
         }
         
+        /* Header Styles */
         header {
             background-color: var(--primary);
-            padding: 1.5rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         
-        .container {
-            width: 90%;
-            max-width: 1200px;
+        .top-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            max-width: 1400px;
             margin: 0 auto;
         }
         
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
         .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--text);
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
             text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.5px;
         }
         
         .logo span {
-            color: var(--accent);
+            background: linear-gradient(135deg, var(--highlight), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
         }
         
-        nav ul {
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 30px;
             display: flex;
-            list-style: none;
+            max-width: 600px;
         }
         
-        nav ul li {
-            margin-left: 2rem;
+        .search-bar input {
+            flex-grow: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 6px 0 0 6px;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
         }
         
-        nav ul li a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+        .search-bar button {
+            background: linear-gradient(to right, var(--highlight), var(--accent));
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+            transition: opacity 0.2s;
         }
         
-        nav ul li a:hover {
-            color: var(--accent);
+        .search-bar button:hover {
+            opacity: 0.9;
         }
         
-        .hero {
-            height: 92vh;
+        .account-links {
             display: flex;
             align-items: center;
-            background: linear-gradient(120deg, var(--primary), var(--background));
+        }
+        
+        .account-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 15px;
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+        
+        .account-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--secondary);
+            padding: 12px 0;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            padding: 0 24px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0 16px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        /* Main Content */
+        .main-container {
+            max-width: 1400px;
+            margin: 32px auto;
+            padding: 0 24px;
+        }
+        
+        .hero-banner {
+            background: linear-gradient(135deg, var(--highlight), var(--accent));
+            color: white;
+            padding: 48px 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-banner h1 {
+            font-size: 40px;
+            margin-bottom: 24px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .hero-banner p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 28px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 16px;
+            transition: all 0.3s;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-title {
+            font-size: 28px;
+            margin: 48px 0 24px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--highlight), var(--accent));
+            border-radius: 2px;
+        }
+        
+        /* Categories */
+        .categories {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px 0;
+            margin-bottom: 40px;
+            gap: 24px;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .categories::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        
+        .category-item {
+            min-width: 160px;
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .category-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 16px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            color: white;
+            font-size: 36px;
+        }
+        
+        .category-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border);
             position: relative;
             overflow: hidden;
         }
         
-        .hero::after {
-            content: "";
+        .service-tag {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, transparent 30%, var(--background) 70%);
-            opacity: 0.7;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 10;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            max-width: 700px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--text);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
+            top: 20px;
+            right: 20px;
+            font-size: 12px;
             font-weight: 600;
-            transition: all 0.3s;
-            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+        
+        .direct-tag {
+            background: linear-gradient(135deg, var(--highlight), var(--accent));
+            color: white;
+        }
+        
+        .partner-tag {
+            background-color: var(--subtle);
+            color: white;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .product-image {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--highlight);
+        }
+        
+        .product-title {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: var(--primary);
+            min-height: 48px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .product-description {
+            font-size: 15px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+        
+        .pricing-options {
+            margin-bottom: 16px;
+        }
+        
+        .price-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .price-option {
+            padding: 8px 14px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 14px;
             cursor: pointer;
-        }
-        
-        .btn:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--accent);
-            margin-left: 1rem;
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--accent);
-        }
-        
-        section {
-            padding: 5rem 0;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--accent);
-            margin-bottom: 3rem;
+            background-color: var(--light);
+            transition: all 0.2s;
             font-weight: 500;
         }
         
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .price-option.active {
+            background: linear-gradient(to right, var(--highlight), var(--accent));
+            color: white;
+            border-color: transparent;
         }
         
-        .service-card {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid var(--border);
+        .product-price {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+            font-family: 'Montserrat', sans-serif;
         }
         
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        .price-note {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            line-height: 1.5;
         }
         
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-        
-        .service-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .approach {
-            background-color: var(--primary);
-            border-radius: 20px;
-            padding: 4rem;
-            margin-top: 3rem;
-        }
-        
-        .approach-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .approach-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .approach-text p {
-            margin-bottom: 1.5rem;
-            color: var(--text-secondary);
-        }
-        
-        .approach-list {
-            list-style: none;
-            margin-top: 2rem;
-        }
-        
-        .approach-list li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .approach-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-        
-        .tech-wave {
-            background: linear-gradient(135deg, var(--background), var(--primary));
-            border-radius: 20px;
-            padding: 4rem;
-            margin-top: 4rem;
-            text-align: center;
-        }
-        
-        .tech-wave h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .tech-wave p {
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            color: var(--text-secondary);
-        }
-        
-        .testimonials {
-            padding: 4rem 0;
-        }
-        
-        .testimonial-card {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            color: var(--text);
-        }
-        
-        .testimonial-author {
+        .add-to-cart {
+            background: linear-gradient(to right, var(--highlight), var(--accent));
+            border: none;
+            padding: 12px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-top: auto;
+            color: white;
             font-weight: 600;
-            color: var(--accent);
+            transition: opacity 0.2s, transform 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         
-        .testimonial-org {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+        .add-to-cart:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         
-        .cta {
-            background: linear-gradient(45deg, var(--secondary), var(--accent));
-            text-align: center;
-            padding: 5rem 0;
-            border-radius: 20px;
-            margin-top: 4rem;
-        }
-        
-        .cta h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .cta p {
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
+        /* Footer */
         footer {
             background-color: var(--primary);
-            padding: 3rem 0;
-            margin-top: 5rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-        
-        .footer-section h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
         }
         
         .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 24px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--light);
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(to right, var(--highlight), var(--accent));
+        }
+        
+        .footer-column ul {
             list-style: none;
         }
         
-        .footer-links li {
-            margin-bottom: 0.7rem;
+        .footer-column li {
+            margin-bottom: 12px;
         }
         
-        .footer-links a {
-            color: var(--text-secondary);
+        .footer-column a {
+            color: var(--subtle);
             text-decoration: none;
-            transition: color 0.3s;
+            font-size: 15px;
+            transition: color 0.2s;
         }
         
-        .footer-links a:hover {
-            color: var(--accent);
+        .footer-column a:hover {
+            color: white;
         }
         
         .copyright {
-            margin-top: 3rem;
             text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            padding-top: 2rem;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .approach-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .approach, .tech-wave {
-                padding: 2rem;
-            }
-            
-            .menu-btn {
-                display: block;
-            }
-            
-            nav {
-                display: none;
-            }
+            padding: 30px 0 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 1400px;
+            margin: 60px auto 0;
+            font-size: 14px;
+            color: var(--subtle);
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize price options
+            document.querySelectorAll('.price-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove active class from all options in this group
+                    const allOptions = this.parentNode.querySelectorAll('.price-option');
+                    allOptions.forEach(el => el.classList.remove('active'));
+                    
+                    // Add active class to clicked option
+                    this.classList.add('active');
+                    
+                    // Update price and note based on the data attributes
+                    const card = this.closest('.product-card');
+                    card.querySelector('.product-price').textContent = this.getAttribute('data-price');
+                    card.querySelector('.price-note').textContent = this.getAttribute('data-note');
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">NOVA<span>SOUL</span></a>
-                <nav>
-                    <ul>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#approach">Our Approach</a></li>
-                        <li><a href="#tech3">Tech 3.0</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
+        <div class="top-header">
+            <a href="#" class="logo">NOVA<span>SOUL</span></a>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for technology services...">
+                <button>🔍</button>
+            </div>
+            <div class="account-links">
+                <a href="#">Account</a>
+                <a href="#">Contact Us</a>
             </div>
         </div>
     </header>
-
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Human-Centered Technology Solutions for a Digital World</h1>
-                <p>Nova Soul brings a soulful approach to technology consulting, matching tools to values and keeping humanity at the center of Tech 3.0.</p>
-                <a href="#services" class="btn">Explore Services</a>
-                <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#">All Services</a>
+            <a href="#">Tech Support</a>
+            <a href="#">Data Analysis</a>
+            <a href="#">Server Solutions</a>
+            <a href="#">Consulting</a>
+            <a href="#">Training</a>
+            <a href="#">Secure Systems</a>
+        </div>
+    </nav>
+    
+    <div class="main-container">
+        <div class="hero-banner">
+            <h1>Human-Centered Technology Solutions</h1>
+            <p>Nova Soul brings a soulful approach to technology consulting, matching tools to values and keeping humanity at the center of Tech 3.0.</p>
+            <a href="#" class="cta-button">Explore Our Services</a>
+        </div>
+        
+        <div class="categories">
+            <div class="category-item">
+                <div class="category-icon">💻</div>
+                <div class="category-name">Tech Support</div>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">🔒</div>
+                <div class="category-name">Security</div>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">📊</div>
+                <div class="category-name">Data Analysis</div>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">🖥️</div>
+                <div class="category-name">Server Solutions</div>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">📁</div>
+                <div class="category-name">File Management</div>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">📈</div>
+                <div class="category-name">Financial Data</div>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">📝</div>
+                <div class="category-name">Training</div>
             </div>
         </div>
-    </section>
-
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Technology solutions with soul and purpose</p>
+        
+        <h2 class="section-title">Nova Soul Direct Services</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="service-tag direct-tag">Direct</div>
+                <div class="product-image">
+                    <div style="font-size: 54px;">💻</div>
+                </div>
+                <h3 class="product-title">Staff Technology Support</h3>
+                <p class="product-description">Complete technology support for your team including computer setup, troubleshooting, and optimization.</p>
+                
+                <div class="pricing-options">
+                    <div class="price-selector">
+                        <div class="price-option active" data-price="$150/hour" data-note="*Average service duration: 2-4 hours per task based on industry standards">Hourly</div>
+                        <div class="price-option" data-price="$1,350" data-note="*10-hour package (10% discount) - most popular option for ongoing support">10-Hour Package</div>
+                    </div>
+                    <div class="product-price">$150/hour</div>
+                    <p class="price-note">*Average service duration: 2-4 hours per task based on industry standards</p>
+                </div>
+                
+                <button class="add-to-cart">Learn More</button>
+            </div>
             
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Staff Technology Support</h3>
-                    <p>Personalized computer setup, performance optimization, and software configuration tailored to your team's specific needs and workflows.</p>
-                    <ul>
-                        <li>Computer purchasing and setup</li>
-                        <li>Performance troubleshooting</li>
-                        <li>Software configuration</li>
-                        <li>Standardized computer imaging</li>
-                    </ul>
+            <div class="product-card">
+                <div class="service-tag direct-tag">Direct</div>
+                <div class="product-image">
+                    <div style="font-size: 54px;">📁</div>
+                </div>
+                <h3 class="product-title">File Management System</h3>
+                <p class="product-description">Organized digital file structures with protocols designed for your specific workflows and needs.</p>
+                
+                <div class="pricing-options">
+                    <div class="price-selector">
+                        <div class="price-option active" data-price="$150/hour" data-note="*Complete setup typically requires 12-16 hours based on complexity and organization size">Hourly</div>
+                        <div class="price-option" data-price="$1,950" data-note="*Fixed price for complete system implementation including training">Complete Package</div>
+                    </div>
+                    <div class="product-price">$150/hour</div>
+                    <p class="price-note">*Complete setup typically requires 12-16 hours based on complexity and organization size</p>
                 </div>
                 
-                <div class="service-card">
-                    <h3>File Management Systems</h3>
-                    <p>Organized digital file structures that make sense for your organization, with protocols designed for your specific workflows and needs.</p>
-                    <ul>
-                        <li>Digital file organization</li>
-                        <li>Secure cloud storage</li>
-                        <li>Media file management</li>
-                        <li>Staff training</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <h3>In-House Secure Server</h3>
-                    <p>Air-gapped, private server solutions physically located on your premises for maximum security and control of sensitive data.</p>
-                    <ul>
-                        <li>Air-gapped server setup</li>
-                        <li>Hardware procurement</li>
-                        <li>Restricted access protocols</li>
-                        <li>Local network configuration</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Program Participant Database</h3>
-                    <p>Custom database solutions for tracking program participants, outcomes, and satisfaction, designed in partnership with your program managers.</p>
-                    <ul>
-                        <li>Database implementation</li>
-                        <li>Custom tracking fields</li>
-                        <li>Program reporting</li>
-                        <li>Satisfaction tracking</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Financial Data Visualization</h3>
-                    <p>Visual reports and dashboards that bring your financial data to life, helping you understand trends and make better decisions.</p>
-                    <ul>
-                        <li>Budget analysis</li>
-                        <li>Financial tracking</li>
-                        <li>Management dashboards</li>
-                        <li>Grant visualization</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Public Dataset Analysis</h3>
-                    <p>Connection to public data sources with custom reports and dashboards that help you understand your community better.</p>
-                    <ul>
-                        <li>Public data connection</li>
-                        <li>Community metrics</li>
-                        <li>Custom dashboards</li>
-                        <li>Data interpretation</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Dark Web Security Assessment</h3>
-                    <p>Comprehensive scanning for organizational vulnerabilities on the dark web, with practical recommendations for improving security.</p>
-                    <ul>
-                        <li>Dark web email scanning</li>
-                        <li>Organization name monitoring</li>
-                        <li>Staff information scanning</li>
-                        <li>Security recommendations</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Systems & Process Optimization</h3>
-                    <p>Review and enhancement of your existing systems with targeted recommendations for improvements in efficiency and effectiveness.</p>
-                    <ul>
-                        <li>System assessment</li>
-                        <li>Financial tracking optimization</li>
-                        <li>Process mapping</li>
-                        <li>Workflow documentation</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Training Materials Enhancement</h3>
-                    <p>Modernization of your training materials with professionally designed presentations and engaging visual content.</p>
-                    <ul>
-                        <li>PowerPoint redesign</li>
-                        <li>Visual content creation</li>
-                        <li>Training effectiveness</li>
-                        <li>Modern presentation design</li>
-                    </ul>
-                </div>
+                <button class="add-to-cart">Learn More</button>
             </div>
-        </div>
-    </section>
-
-    <section id="approach" class="container">
-        <div class="approach">
-            <div class="approach-content">
-                <div class="approach-text">
-                    <h2>The Nova Soul Approach</h2>
-                    <p>At Nova Soul, we believe technology should serve human values, not the other way around. Our approach is built on understanding your unique needs and values first, then finding the right technological solutions.</p>
-                    <p>We've evolved from IOSoul to Nova Soul, reflecting our commitment to bringing fresh, innovative approaches to technology consulting while keeping the human element at the center.</p>
-                    
-                    <ul class="approach-list">
-                        <li>Custom components that match your values and preferences</li>
-                        <li>Human-centered design that prioritizes real people's needs</li>
-                        <li>Ethical technology choices that align with your mission</li>
-                        <li>Value-sensitive implementation that respects your organization's culture</li>
-                        <li>Solutions targeted to your specific requirements, not generic packages</li>
-                    </ul>
+            
+            <div class="product-card">
+                <div class="service-tag direct-tag">Direct</div>
+                <div class="product-image">
+                    <div style="font-size: 54px;">🔒</div>
                 </div>
-                <div class="approach-image">
-                    <!-- This would be an image in a real site -->
-                    <div style="height: 400px; background: linear-gradient(45deg, #4a2aeb, #7245ff); border-radius: 15px; display: flex; justify-content: center; align-items: center; color: white; font-size: 2rem; font-weight: bold;">Human-Centered Technology</div>
+                <h3 class="product-title">In-House Secure Server</h3>
+                <p class="product-description">Air-gapped, private server solutions physically located on your premises for maximum security and control.</p>
+                
+                <div class="pricing-options">
+                    <div class="price-selector">
+                        <div class="price-option active" data-price="$150/hour" data-note="*Complete implementation typically takes 20-25 hours including hardware setup and configuration">Hourly</div>
+                        <div class="price-option" data-price="$2,995" data-note="*Fixed price for complete server setup and configuration (hardware costs not included)">Full Implementation</div>
+                    </div>
+                    <div class="product-price">$150/hour</div>
+                    <p class="price-note">*Complete implementation typically takes 20-25 hours including hardware setup and configuration</p>
                 </div>
+                
+                <button class="add-to-cart">Learn More</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="service-tag direct-tag">Direct</div>
+                <div class="product-image">
+                    <div style="font-size: 54px;">🔍</div>
+                </div>
+                <h3 class="product-title">Dark Web Security Assessment</h3>
+                <p class="product-description">Comprehensive scanning for organizational vulnerabilities on the dark web with actionable security recommendations.</p>
+                
+                <div class="pricing-options">
+                    <div class="price-selector">
+                        <div class="price-option active" data-price="$895" data-note="*Fixed price service covering organization emails, name, and up to 10 staff members">Basic Scan</div>
+                        <div class="price-option" data-price="$1,495" data-note="*Extended scan with in-depth analysis and remediation plan for organizations with up to 50 staff">Comprehensive</div>
+                    </div>
+                    <div class="product-price">$895</div>
+                    <p class="price-note">*Fixed price service covering organization emails, name, and up to 10 staff members</p>
+                </div>
+                
+                <button class="add-to-cart">Learn More</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="service-tag direct-tag">Direct</div>
+                <div class="product-image">
+                    <div style="font-size: 54px;">📊</div>
+                </div>
+                <h3 class="product-title">Financial Data Visualization</h3>
+                <p class="product-description">Visual reports and dashboards that bring your financial data to life, helping you understand trends and make better decisions.</p>
+                
+                <div class="pricing-options">
+                    <div class="price-selector">
+                        <div class="price-option active" data-price="$150/hour" data-note="*Complete dashboard implementation typically requires 20-30 hours based on data complexity">Hourly</div>
+                        <div class="price-option" data-price="$3,250" data-note="*Fixed price for complete financial dashboard with standard metrics and training">Full Dashboard</div>
+                    </div>
+                    <div class="product-price">$150/hour</div>
+                    <p class="price-note">*Complete dashboard implementation typically requires 20-30 hours based on data complexity</p>
+                </div>
+                
+                <button class="add-to-cart">Learn More</button>
             </div>
         </div>
         
-        <div id="tech3" class="tech-wave">
-            <h2>Navigating Technology 3.0</h2>
-            <p>We're entering the third wave of technology evolution - one where AI, automation, and advanced systems are becoming increasingly integrated into our lives. At Nova Soul, we believe in keeping humans at the center of this transformation.</p>
-            <p>Our mission is to help you harness the power of Tech 3.0 while ensuring it serves your human-centered goals and values. We don't just implement technology; we help you navigate this new landscape with intention and purpose.</p>
-            <a href="#contact" class="btn">Partner With Us</a>
+        <h2 class="section-title">Partner Services</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="service-tag partner-tag">Partner</div>
+                <div class="product-image">
+                    <div style="font-size: 54px;">☁️</div>
+                </div>
+                <h3 class="product-title">Enterprise Cloud Storage</h3>
+                <p class="product-description">Secure, scalable cloud storage solutions with automated backup, version control, and team collaboration features.</p>
+                
+                <div class="pricing-options">
+                    <div class="price-selector">
+                        <div class="price-option active" data-price="$8.99/user/month" data-note="*Includes 1TB storage per user, 30-day file recovery, and standard support">Standard</div>
+                        <div class="price-option" data-price="$15.99/user/month" data-note="*Includes unlimited storage, 180-day file recovery, and priority support">Business Plus</div>
+                    </div>
+                    <div class="product-price">$8.99/user/month</div>
+                    <p class="price-note">*Includes 1TB storage per user, 30-day file recovery, and standard support</p>
+                </div>
+                
+                <button class="add-to-cart">Learn More</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="service-tag partner-tag">Partner</div>
+                <div class="product-image">
+                    <div style="font-size: 54px;">📞</div>
+                </div>
+                <h3 class="product-title">VoIP Business Phone</h3>
+                <p class="product-description">Cloud-based phone systems with advanced calling features, team messaging, video conferencing, and mobile app.</p>
+                
+                <div class="pricing-options">
+                    <div class="price-selector">
+                        <div class="price-option active" data-price="$24.99/line/month" data-note="*Includes unlimited calls, team messaging, voicemail-to-text, and mobile app">Standard</div>
+                        <div class="price-option" data-price="$34.99/line/month" data-note="*Includes everything in Standard plus video conferencing, call recording, and analytics">Premium</div>
+                    </div>
+                    <div class="product-price">$24.99/line/month</div>
+                    <p class="price-note">*Includes unlimited calls, team messaging, voicemail-to-text, and mobile app</p>
+                </div>
+                
+                <button class="add-to-cart">Learn More</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="service-tag partner-tag">Partner</div>
+                <div class="product-image">
+                    <div style="font-size: 54px;">🔍</div>
+                </div>
+                <h3 class="product-title">Data Center Audit</h3>
+                <p class="product-description">Comprehensive assessment of data center operations, security, compliance, and efficiency with detailed recommendations.</p>
+                
+                <div class="pricing-options">
+                    <div class="price-selector">
+                        <div class="price-option active" data-price="$4,995" data-note="*Basic audit including infrastructure assessment, security evaluation, and compliance review">Basic Audit</div>
+                        <div class="price-option" data-price="$8,995" data-note="*Comprehensive audit with detailed recommendations, remediation roadmap, and follow-up consultation">Premium Audit</div>
+                    </div>
+                    <div class="product-price">$4,995</div>
+                    <p class="price-note">*Basic audit including infrastructure assessment, security evaluation, and compliance review</p>
+                </div>
+                
+                <button class="add-to-cart">Learn More</button>
+            </div>
         </div>
-    </section>
-
-    <section class="testimonials container">
-        <h2 class="section-title">What Our Clients Say</h2>
-        <p class="section-subtitle">Real results from real organizations</p>
-        
-        <div class="testimonial-card">
-            <p class="testimonial-text">"Nova Soul didn't just fix our technology problems - they understood our mission and values first, then developed solutions that actually matched our needs. Their approach was refreshingly human-centered."</p>
-            <p class="testimonial-author">Executive Director</p>
-            <p class="testimonial-org">Bay Area Nonprofit</p>
-        </div>
-        
-        <div class="testimonial-card">
-            <p class="testimonial-text">"The financial visualization dashboard Nova Soul created has completely transformed how we understand our organization's finances. We can now make decisions based on clear data rather than guesswork."</p>
-            <p class="testimonial-author">Finance Director</p>
-            <p class="testimonial-org">Community Services Organization</p>
-        </div>
-    </section>
-
-    <section id="contact" class="container">
-        <div class="cta">
-            <h2>Ready for Technology with Soul?</h2>
-            <p>Let's discuss how Nova Soul can help your organization with human-centered technology solutions tailored to your unique needs and values.</p>
-            <a href="mailto:info@novasoul.net" class="btn">Contact Us Today</a>
-        </div>
-    </section>
-
+    </div>
+    
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Nova Soul LLC</h3>
-                    <p>Human-centered technology consulting for a digital world.</p>
-                    <p>info@novasoul.net</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#services">Staff Technology Support</a></li>
-                        <li><a href="#services">In-House Secure Server</a></li>
-                        <li><a href="#services">Data Visualization</a></li>
-                        <li><a href="#services">Process Optimization</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#approach">Our Approach</a></li>
-                        <li><a href="#tech3">Tech 3.0</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
+        <div class="footer-links">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Our Approach</a></li>
+                    <li><a href="#">Company Values</a></li>
+                    <li><a href="#">Technology 3.0</a></li>
+                    <li><a href="#">Human-Centered Design</a></li>
+                </ul>
             </div>
             
-            <div class="copyright">
-                <p>&copy; 2025 Nova Soul LLC. All rights reserved.</p>
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Technology Support</a></li>
+                    <li><a href="#">Security Services</a></li>
+                    <li><a href="#">Data Analysis</a></li>
+                    <li><a href="#">Training Services</a></li>
+                </ul>
             </div>
-        </div>
-    </footer>
-</body>
-</html>
+            
+            <div class="footer-column">
+                <h3>Client Resources</h3>
+                <ul>
+                    <li><a href="#">Service Policies</a></li>
+                    <li><a href="#">Scheduling</a></li>
+                    <li><a href="#">Payment Options</a></li>
+                    <li><a href="#">Client Portal</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
